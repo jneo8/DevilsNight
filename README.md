@@ -3,7 +3,7 @@ DevilsNight
 GOLANG's developer blog.
 
 
-## LOG 
+## LOG setting
 
 ```go
 go get github.com/op/go-logging
