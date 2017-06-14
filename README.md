@@ -2,5 +2,10 @@ DevilsNight
 
 GOLANG's developer blog.
 
-# test
-# test2
+
+## LOG 
+
+```go
+go get github.com/op/go-logging
+```
+https://github.com/op/go-logging
