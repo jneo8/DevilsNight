@@ -10,7 +10,7 @@ import (
 
 var log = logging.MustGetLogger("Web")
 var format = logging.MustStringFormatter(
-    `%{color:reset}%{time:15:04:05.000} %{color:bold}%{longfile} ▶ %{level:.4s} %{id:03x} %{color:reset}%{color}%{message}%{color:reset}`,
+    `%{time:15:04:05.000} %{color}%{longfile} %{color:reset}▶ %{color}%{level:.4s} %{id:03x} %{color:bold}%{message}%{color:reset}`,
 )
 
 type ContactDetails struct {
@@ -39,8 +39,6 @@ func main() {
         }
 
         log.Debug(r)
-        log.Info(r)
-        log.Notice(r)
 
         details := ContactDetails{
             Email: r.FormValue("email"),
@@ -49,8 +47,13 @@ func main() {
         }
         
         //do something with details
-        _ = details
+
+        log.Info(details.Email)
+        log.Info(details.Subjuct)
+        log.Info(details.Message)
+
+
         tmpl.Execute(w, struct{ Success bool }{true})
     })
-    http.ListenAndServe("0.0.0.0:19480", nil)
+    http.ListenAndServe("0.0.0.0:8000", nil)
 }
